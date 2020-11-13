@@ -1,7 +1,6 @@
 import csv 
 import requests 
-import xml.etree.ElementTree as ET 
-import xml.dom.minidom as minidom
+import xml.etree.ElementTree as ET
 
 # loads equips.xml from RotMG Production
 def load_equips(): 

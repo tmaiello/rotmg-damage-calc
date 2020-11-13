@@ -1,21 +1,39 @@
 # RotMG Damage Calculator
 
-
-#### Author: Tyler Maiello
+### Author: Tyler Maiello
 
 ## About
 
 This App is my take on a damage calculator for RotMG since the popular one a lot of people used is on flash <3
 
-## Notes
+## Running Application
+
+Currently this application is deployed as an API on flask. At some point a GUI will be created to associate with those API requests
+
+If you want to download and run the application locally, you can deploy a testing flask server on localhost by running (from root of project) `python3 (or python if aliased to use python version >=3 ) src/app.py`
+
+## TODO
+
+Create... the api?
+
+Documentation pending creation of the app/api
+
+Deploy production web server to be publicly parsed and used.
+
+<sup><sub><sub>(I love that I just put a TODO in my own readme...)</sub></sub></sup>
+
+## Notes for Calculations and Transparency
 
 
 ### RANGE CALC (Info From Wiki)
 
+```
 Projectile Speed (in t/s) * Projectile Lifetime (in seconds) = Range (in tiles)
+```
 
 
 ### DAMAGE CALC (Info From Wiki)
+```
 HP (Hit Points)
 Your health. When it reaches 0 (Or in rare cases, -1), you die.
 When you have only 20% of your health and less, your character starts to blink red and you should drink some health potions or nexus before you take any further damage.
@@ -72,53 +90,56 @@ MP/s (mp per second) = 0.5 + 0.12 * WIS = 0.12 * (WIS + 8.3)
 Also modifies the intensity, range, and duration of Priest Tomes, Paladin Seals, and Mystic Orbs, the radius and damage of Necromancer Skulls, and the number of targets and damage of Sorcerer Scepters, but only when the user’s WIS stat is more than 50.
 modified value = initial value * (1 + (WIS - 50) / 50)
 Your ability potential multiplier can’t go below 1 (formula above only applies when Wisdom is 50 or higher). At 75 Wisdom your ability potential is 1.5 times that of if you had 50 Wisdom.
-
+```
 
 ### ID TYPES
+```
 ID: Usable Characters: Type:
 
 1 Warrior, Knight, Paladin - Weapon (Sword)
-
 2 Rogue, Assassin, Trickster - Weapon (Dagger)
-
 3 Archer, Huntress - Weapon (Bow)
-
 4 Priest - Armor (Cloth)
-
 5 Knight - Special (Helm)
-
 6 Archer, Huntress, Rogue, Assassin, Trickster - Armor (Leather)
-
 7 Warrior, Knight, Paladin - Armor (Heavy)
-
 8 Priest, Sorcerer - Weapon (Wand)
-
 9 All Chars - Ring
-
 10 Nothing?
-
 11 Wizard - Special (Spell)
-
 12 Paladin - Special (Seal)
-
 13 Rogue - Special (Cloak)
-
 14 Wizard, Priest, Necromancer, Mystic, Sorcerer - Armor (Robe)
-
 15 Archer - Special (Quiver)
-
 16 Warrior - Special (Helm?)
-
 17 Wizard, Necromancer, Mystic - Weapon (Staff)
-
 18 Assassin - Special (Poison)
-
 19 Necromancer - Special (Skull)
-
 20 Huntress - Special (Trap)
-
 21 Mystic - Special (Orb)
-
 22 Trickster - Special (Prism)
-
 23 Sorcerer - Special (Scepter)
+```
+
+### License / Sharing
+MIT License
+
+Copyright (c) 2020 Tyler Maiello
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

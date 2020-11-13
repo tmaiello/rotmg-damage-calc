@@ -81,16 +81,16 @@ def save_to_CSV(rotmgitems, filename):
         # writing data rows 
         writer.writerows(rotmgitems) 
 
+# Main for testing
 
-def main(): 
-    # load equip.xml from web to update existing xml file 
-    load_equips() 
-    # parse xml file -> project on SlotType != None
-    rotmg_items = get_equipable_items('rotmg.xml') 
-    # store rotmg items in a csv file 
-    save_to_CSV(rotmg_items, 'rotmg.csv') 
+# def main(): 
+#     # load equip.xml from web to update existing xml file 
+#     load_equips() 
+#     # parse xml file -> project on SlotType != None
+#     rotmg_items = get_equipable_items('rotmg.xml') 
+#     # store rotmg items in a csv file 
+#     save_to_CSV(rotmg_items, 'rotmg.csv') 
 
 
-if __name__ == "__main__": 
-    main() 
-
+# if __name__ == "__main__": 
+#     main() 

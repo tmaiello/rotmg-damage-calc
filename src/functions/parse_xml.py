@@ -64,8 +64,7 @@ def get_equipable_items(xmlfile):
                 for proj in child.findall('./'):
                     items[proj.tag] = proj.text
             if child.tag == 'ActivateOnEquip' and child.text != None:
-                for aoe in child.attrib.get('stat'):
-                    items[child.attrib.get('stat')] = child.attrib.get('amount')
+                items[child.attrib.get('stat')] = child.attrib.get('amount')
         # append items dictionary to rotmg items list 
         rotmg_items.append(items) 
     # return rotmg items list 

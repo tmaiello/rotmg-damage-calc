@@ -1,3 +1,5 @@
+__author__ = "Tyler Maiello"
+
 import csv 
 import requests 
 import xml.etree.ElementTree as ET
@@ -53,12 +55,17 @@ def get_equipable_items(xmlfile):
         # iterate child elements of item 
         for child in item:
             if child.tag == 'SlotType' and child.text != None:
-                items['type'] = (item.attrib.get('type'))
-                items['id'] = (item.attrib.get('id'))
+                items['Type'] = (item.attrib.get('type'))
+                items['Id'] = (item.attrib.get('id'))
+                items[child.tag] = child.text
+            if child.tag == 'RateOfFire':
                 items[child.tag] = child.text
             if child.tag == 'Projectile':
                 for proj in child.findall('./'):
                     items[proj.tag] = proj.text
+            if child.tag == 'ActivateOnEquip' and child.text != None:
+                for aoe in child.attrib.get('stat'):
+                    items[child.attrib.get('stat')] = child.attrib.get('amount')
         # append items dictionary to rotmg items list 
         rotmg_items.append(items) 
     # return rotmg items list 
@@ -67,11 +74,11 @@ def get_equipable_items(xmlfile):
 # saves the parsed XML data to CSV
 def save_to_CSV(rotmgitems, filename): 
     # specifying the fields for csv file 
-    fields = ['type', 'id', 'SlotType', 'Projectile', 'ObjectId',
+    fields = ['Type', 'Id', 'SlotType', 'RateOfFire', 'ObjectId',
     'LifetimeMS', 'MaxDamage', 'Speed', 'MinDamage', 'MultiHit',
     'Amplitude', 'Frequency', 'ArmorPiercing','PassesCover', 'Parametric',
     'ConditionEffect', 'Size', 'ParticleTrail', 'FaceDir','Wavy',
-    'Boomerang','Magnitude','Damage']
+    'Boomerang','Magnitude','Damage', '0', '1', '3', '4', '20', '21', '22', '26', '27', '28']
     # writing to csv file 
     with open(filename, 'w') as csvfile: 
         # creating a csv dict writer object 
@@ -83,14 +90,14 @@ def save_to_CSV(rotmgitems, filename):
 
 # Main for testing
 
-# def main(): 
-#     # load equip.xml from web to update existing xml file 
-#     load_equips() 
-#     # parse xml file -> project on SlotType != None
-#     rotmg_items = get_equipable_items('rotmg.xml') 
-#     # store rotmg items in a csv file 
-#     save_to_CSV(rotmg_items, 'rotmg.csv') 
+def main(): 
+    # load equip.xml from web to update existing xml file 
+    load_equips() 
+    # parse xml file -> project on SlotType != None
+    rotmg_items = get_equipable_items('rotmg.xml') 
+    # store rotmg items in a csv file 
+    save_to_CSV(rotmg_items, 'rotmg.csv') 
 
 
-# if __name__ == "__main__": 
-#     main() 
+if __name__ == "__main__": 
+    main() 

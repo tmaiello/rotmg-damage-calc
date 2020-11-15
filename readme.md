@@ -121,7 +121,7 @@ ID: Usable Characters: Type:
 23 Sorcerer - Special (Scepter)
 ```
 
-### License / Sharing
+## License / Sharing
 MIT License
 
 Copyright (c) 2020 Tyler Maiello

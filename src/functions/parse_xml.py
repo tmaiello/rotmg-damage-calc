@@ -35,6 +35,8 @@ def parse_xml(xmlfile):
             if child.tag == 'Projectile':
                 for proj in child.findall('./'):
                     items[proj.tag] = proj.text
+            if child.tag == 'NumProjectiles':
+                items[child.tag] = child.text
         # append items dictionary to rotmg items list 
         rotmg_items.append(items) 
     # return rotmg items list 

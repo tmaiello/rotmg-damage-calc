@@ -50,7 +50,23 @@ class Character:
     @property
     def wis(self):
         return self._wis
-    
+
+    @property
+    def slot_1(self):
+        return self._slot_1
+        
+    @property
+    def slot_2(self):
+        return self._slot_2
+
+    @property
+    def slot_3(self):
+        return self._slot_3
+
+    @property
+    def slot_4(self):
+        return self._slot_4
+
     @life.setter
     def life(self, life):
         self._life = life
@@ -82,3 +98,19 @@ class Character:
     @wis.setter
     def wis(self, wis):
         self._wis = wis
+
+    @slot_1.setter
+    def slot_1(self, slot_1):
+        self._slot_1 = slot_1
+
+    @slot_2.setter
+    def slot_2(self, slot_2):
+        self._slot_2 = slot_2
+
+    @slot_3.setter
+    def slot_3(self, slot_3):
+        self._slot_3 = slot_3
+
+    @slot_4.setter
+    def slot_4(self, slot_4):
+        self._slot_4 = slot_4

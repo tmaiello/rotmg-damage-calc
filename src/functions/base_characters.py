@@ -1,6 +1,8 @@
 __author__ = "Tyler Maiello"
 from functions import character
 
+# This is an (admittedly) ugly method that simply returns Character objects
+# with the corresponding stats for damage calculations!
 def return_maxed_stats(class_name):
     if class_name.lower() == "archer":
         return character.Character(700,252,75,25,50,50,40,50, None, None, None, None)
